@@ -169,7 +169,9 @@
               <h3 class="text-xl font-semibold">
                 Deploying Static Website on AWS
               </h3>
-              <span class="text-blue-600 font-medium mt-2 inline-block">
+              <span
+                class="text-blue-600 font-medium inline-block mt-0 min-w-[102px]"
+              >
                 Show More →
               </span>
             </button>
@@ -177,32 +179,64 @@
               class="hidden mt-4 text-gray-700 leading-relaxed"
               id="case-study-1"
             >
+              <br />
               <h4 class="text-lg font-semibold mt-4">Objective</h4>
               <p>
-                The goal of this project was to build a **fully serverless web
-                application** that could scale automatically based on user
-                demand.
+                To set up a static website -
+                <a href="awssolutionsarchitect.com"
+                  >awssolutionsarchitect.com</a
+                >
+                - hosted on Amazon S3, secured with an SSL certificate from AWS
+                Certificate Manager (ACM), and delivered through Amazon
+                CloudFront. The site should be accessible via both www and
+                non-www domains, with proper DNS configuration using Route 53.
               </p>
               <h4 class="text-lg font-semibold mt-4">Challenges</h4>
               <ul class="list-disc ml-6">
                 <li>
-                  Ensuring **scalability** without over-provisioning resources.
+                  When creating a new ACM certificate, it remained stuck in
+                  "Pending validation" indefinitely.
                 </li>
-                <li>Managing **user authentication** in a secure way.</li>
+                <li>
+                  The certificate wouldn't validate because I had an A record
+                  pointing to the CloudFront distribution.
+                </li>
+                <li>
+                  Ensuring the site was accessible via both www and non-www
+                  domains was tricky.
+                </li>
+                <li>
+                  Properly routing the static website from an S3 bucket through
+                  CloudFront required additional setup.
+                </li>
               </ul>
               <h4 class="text-lg font-semibold mt-4">Solution</h4>
-              <p>
-                I implemented a **fully serverless architecture** using AWS
-                services:
-              </p>
-              <ul class="list-disc ml-6">
-                <li>
-                  <strong>AWS Amplify</strong>: For front-end hosting and
-                  deployment.
-                </li>
-              </ul>
+              <li>
+                I added the required CNAME record in Route 53, allowing the
+                certificate to validate.
+              </li>
+              <li>
+                I deleted the A record pointing to CloudFront, and the
+                certificate validated within minutes.
+              </li>
+              <li>
+                I added both www and non-www versions as alternate domain names
+                in the CloudFront distribution and created an A record in Route
+                53 pointing the www version to CloudFront.
+              </li>
+              <li>
+                I set up a dedicated S3 bucket for my static website and routed
+                it through CloudFront.
+              </li>
               <h4 class="text-lg font-semibold mt-4">Outcome</h4>
-              <p>The project successfully reduced **hosting costs by 40%**.</p>
+              <p>
+                Successfully deployed a static website on S3 with CloudFront for
+                content delivery and SSL security via ACM. The site is fully
+                accessible through both www and non-www domains, with proper DNS
+                configuration in Route 53. This project improved my
+                understanding of Route 53, ACM, CloudFront, and static site
+                hosting on AWS.
+              </p>
             </div>
           </div>
         </div>
