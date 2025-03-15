@@ -209,6 +209,16 @@
                   Properly routing the static website from an S3 bucket through
                   CloudFront required additional setup.
                 </li>
+                <li>
+                  Each time I made an update to the site, I had to manually
+                  upload the files to the S3 bucket. This process was
+                  time-consuming and inefficient, and I wanted to automate it.
+                  My goal was to set up a workflow so that whenever I pushed
+                  changes to the main branch on GitHub, the changes would be
+                  automatically deployed to the S3 bucket. I needed to run the
+                  build command and upload the production files to S3 without
+                  manual intervention.
+                </li>
               </ul>
               <h4 class="text-lg font-semibold mt-4">Solution</h4>
               <li>
@@ -227,6 +237,18 @@
               <li>
                 I set up a dedicated S3 bucket for my static website and routed
                 it through CloudFront.
+              </li>
+              <li>
+                To automate the deployment process, I created
+                a new GitHub Action that connects to my S3 bucket and uploads
+                the updated production files. First, I created a new IAM user in AWS and
+                granted the necessary permissions to read and write to the S3
+                bucket. Then, I stored the IAM user's credentials as secret
+                variables in GitHub. Finally, I updated the GitHub Action YAML
+                file to use these credentials for authentication. Now, every
+                time I commit and push changes to the main branch in GitHub, the
+                build is automatically run, and the production files are
+                uploaded to the S3 bucket without manual intervention. Easy and efficient! 🚀
               </li>
               <h4 class="text-lg font-semibold mt-4">Outcome</h4>
               <p>
