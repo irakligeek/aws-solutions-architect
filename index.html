@@ -34,10 +34,10 @@
         <br />
         <p>
           I'm documenting my journey to showcase the challenges I encounter and
-          the solutions I develop along the way. My goal is to become
-          an AWS Solutions Architect and an expert in cloud technology. I
-          believe my extensive experience in tech will make this transition both
-          smooth and efficient.
+          the solutions I develop along the way. My goal is to become an AWS
+          Solutions Architect and an expert in cloud technology. I believe my
+          extensive experience in tech will make this transition both smooth and
+          efficient.
         </p>
         <br />
         <p>
@@ -46,7 +46,8 @@
           understanding of cloud architecture, I aim to help organizations
           optimize their networking infrastructure with cloud solutions.
           Reducing latency and saving costs are just a few perks AWS services
-          offer, allowing businesses to focus on their goals and customer satisfaction.
+          offer, allowing businesses to focus on their goals and customer
+          satisfaction.
         </p>
       </section>
 
@@ -238,16 +239,17 @@
                 it through CloudFront.
               </li>
               <li>
-                To automate the deployment process, I created
-                a new GitHub Action that connects to my S3 bucket and uploads
-                the updated production files. First, I created a new IAM user in AWS and
+                To automate the deployment process, I created a new GitHub
+                Action that connects to my S3 bucket and uploads the updated
+                production files. First, I created a new IAM user in AWS and
                 granted the necessary permissions to read and write to the S3
                 bucket. Then, I stored the IAM user's credentials as secret
                 variables in GitHub. Finally, I updated the GitHub Action YAML
                 file to use these credentials for authentication. Now, every
                 time I commit and push changes to the main branch in GitHub, the
                 build is automatically run, and the production files are
-                uploaded to the S3 bucket without manual intervention. Easy and efficient! 🚀
+                uploaded to the S3 bucket without manual intervention. Easy and
+                efficient! 🚀
               </li>
               <h4 class="text-lg font-semibold mt-4">Outcome</h4>
               <p>
@@ -260,13 +262,114 @@
               </p>
             </div>
           </div>
+          <!-- Case Study 2 -->
+          <div class="bg-white rounded-lg p-6">
+            <button
+              class="w-full text-left flex justify-between items-center focus:outline-none expand-btn"
+              data-id="2"
+            >
+              <h3 class="text-xl font-semibold">
+                High-Availability WordPress Deployment on AWS with RDS & Elastic
+                Beanstalk
+              </h3>
+              <span
+                class="text-blue-600 font-medium inline-block mt-0 min-w-[102px]"
+              >
+                Show More →
+              </span>
+            </button>
+            <div
+              class="hidden mt-4 text-gray-700 leading-relaxed"
+              id="case-study-2"
+            >
+              <br />
+              <h4 class="text-lg font-semibold mt-4">Objective</h4>
+              <p>
+                Design and deploy a highly available, secure, and scalable
+                WordPress application on AWS. Leverage AWS services like Amazon
+                RDS Aurora and AWS Elastic Beanstalk to ensure optimal
+                performance, reliability, and security. Integrate load balancers
+                and auto-scaling groups to enhance scalability and resilience,
+                while isolating the database and securing communication between
+                components using AWS security groups.
+              </p>
+
+              <p>
+                Live Demo:
+                <a
+                  href="http://wordpress-env.eba-mhjgjmrm.us-east-1.elasticbeanstalk.com/"
+                  >WordPress Deployment</a
+                >
+              </p>
+
+              <h4 class="text-lg font-semibold mt-4">Challenges</h4>
+              <ul class="list-disc ml-6">
+                <li>
+                  Set up security auto groups to allow seamless communication
+                  between resources created with Beanstalk, such as EC2s in the
+                  public subnet and the RDS Aurora database.
+                </li>
+                <li>
+                  Faced issues while deploying the WordPress application via
+                  Beanstalk due to misconfigurations in the config files in
+                  .ebextensions.
+                </li>
+                <li>
+                  Encountered challenges querying data via the AWS Query Editor
+                  to test and retrieve data from the database.
+                </li>
+              </ul>
+              <h4 class="text-lg font-semibold mt-4">Solution</h4>
+              <li>
+                Created custom security groups and correctly configured them to
+                ensure seamless communication between EC2 instances in the
+                public subnet and the RDS Aurora database.
+              </li>
+              <li>
+                Configured the efs-create.config file with my custom VPC ID,
+                which allowed the successful deployment of the WordPress
+                application via Beanstalk.
+              </li>
+              <li>
+                Discovered that the AWS Query Editor was only supported in
+                certain DB engine versions, so I switched to Aurora MySQL 3.07.1
+                to query data from my database using the Query Editor, utilizing
+                familiar SQL-like language.
+              </li>
+              <h4 class="text-lg font-semibold mt-4">Outcome</h4>
+              <p>
+                The project resulted in a highly secure, scalable, and
+                high-performance WordPress application hosted on AWS. By
+                leveraging AWS Elastic Beanstalk, RDS Aurora, and custom
+                security groups, I was able to architect an infrastructure that
+                optimized both security and performance. The decoupled
+                architecture, with the database in a private subnet and the
+                application in a public subnet, ensured robust isolation and
+                security, while also enabling seamless communication between
+                components. The successful configuration of AWS services allowed
+                for automated scaling and load balancing, improving both
+                reliability and user experience resulting in an efficient and
+                reliable and cost-efficient WordPress hosting solution.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section class="container mx-auto p-6 max-w-5xl mb-8" id="contact">
         <ul class="list-none mt-2 flex gap-4">
-          <li><a href="https://www.linkedin.com/in/irakli-khakhviashvili/" class="text-blue-600">LinkedIn</a></li>
-          <li><a href="https://github.com/irakligeek/" class="text-blue-600">GitHub</a></li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/irakli-khakhviashvili/"
+              class="text-blue-600"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/irakligeek/" class="text-blue-600"
+              >GitHub</a
+            >
+          </li>
           <li><a href="#" class="text-blue-600">Resume</a></li>
           <li>
             <a href="mailto:irakligeek@gmail.com" class="text-blue-600"
