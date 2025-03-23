@@ -54,7 +54,6 @@
       <section class="container mx-auto p-6 max-w-5xl" id="aws-certifications">
         <h2 class="text-2xl font-semibold mb-4">Courses & Certifications</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <!-- Card 1 -->
           <div class="card bg-white shadow-md p-4 rounded-lg">
             <h3 class="text-xl font-semibold mb-4">
               Introduction to Computer Networks for Non-Techies
@@ -105,7 +104,6 @@
               Show More →
             </button>
           </div>
-          <!-- Card 2 -->
           <div class="card bg-white shadow-md p-4 rounded-lg">
             <h3 class="text-xl font-semibold mb-4">
               Ultimate AWS Certified Solutions Architect Associate 2025
@@ -220,37 +218,39 @@
                   manual intervention.
                 </li>
               </ul>
-              <h4 class="text-lg font-semibold mt-4">Solution</h4>
-              <li>
-                I added the required CNAME record in Route 53, allowing the
-                certificate to validate.
-              </li>
-              <li>
-                I deleted the A record pointing to CloudFront, and the
-                certificate validated within minutes.
-              </li>
-              <li>
-                I added both www and non-www versions as alternate domain names
-                in the CloudFront distribution and created an A record in Route
-                53 pointing the www version to CloudFront.
-              </li>
-              <li>
-                I set up a dedicated S3 bucket for my static website and routed
-                it through CloudFront.
-              </li>
-              <li>
-                To automate the deployment process, I created a new GitHub
-                Action that connects to my S3 bucket and uploads the updated
-                production files. First, I created a new IAM user in AWS and
-                granted the necessary permissions to read and write to the S3
-                bucket. Then, I stored the IAM user's credentials as secret
-                variables in GitHub. Finally, I updated the GitHub Action YAML
-                file to use these credentials for authentication. Now, every
-                time I commit and push changes to the main branch in GitHub, the
-                build is automatically run, and the production files are
-                uploaded to the S3 bucket without manual intervention. Easy and
-                efficient! 🚀
-              </li>
+              <h4 class="text-lg font-semibold mt-4">Solutions</h4>
+              <ul class="list-disc ml-6">
+                <li>
+                  I added the required CNAME record in Route 53, allowing the
+                  certificate to validate.
+                </li>
+                <li>
+                  I deleted the A record pointing to CloudFront, and the
+                  certificate validated within minutes.
+                </li>
+                <li>
+                  I added both www and non-www versions as alternate domain
+                  names in the CloudFront distribution and created an A record
+                  in Route 53 pointing the www version to CloudFront.
+                </li>
+                <li>
+                  I set up a dedicated S3 bucket for my static website and
+                  routed it through CloudFront.
+                </li>
+                <li>
+                  To automate the deployment process, I created a new GitHub
+                  Action that connects to my S3 bucket and uploads the updated
+                  production files. First, I created a new IAM user in AWS and
+                  granted the necessary permissions to read and write to the S3
+                  bucket. Then, I stored the IAM user's credentials as secret
+                  variables in GitHub. Finally, I updated the GitHub Action YAML
+                  file to use these credentials for authentication. Now, every
+                  time I commit and push changes to the main branch in GitHub,
+                  the build is automatically run, and the production files are
+                  uploaded to the S3 bucket without manual intervention. Easy
+                  and efficient! 🚀
+                </li>
+              </ul>
               <h4 class="text-lg font-semibold mt-4">Outcome</h4>
               <p>
                 Successfully deployed a static website on S3 with CloudFront for
@@ -319,23 +319,25 @@
                   to test and retrieve data from the database.
                 </li>
               </ul>
-              <h4 class="text-lg font-semibold mt-4">Solution</h4>
-              <li>
-                Created custom security groups and correctly configured them to
-                ensure seamless communication between EC2 instances in the
-                public subnet and the RDS Aurora database.
-              </li>
-              <li>
-                Configured the efs-create.config file with my custom VPC ID,
-                which allowed the successful deployment of the WordPress
-                application via Beanstalk.
-              </li>
-              <li>
-                Discovered that the AWS Query Editor was only supported in
-                certain DB engine versions, so I switched to Aurora MySQL 3.07.1
-                to query data from my database using the Query Editor, utilizing
-                familiar SQL-like language.
-              </li>
+              <h4 class="text-lg font-semibold mt-4">Solutions</h4>
+              <ul class="list-disc ml-6">
+                <li>
+                  Created custom security groups and correctly configured them
+                  to ensure seamless communication between EC2 instances in the
+                  public subnet and the RDS Aurora database.
+                </li>
+                <li>
+                  Configured the efs-create.config file with my custom VPC ID,
+                  which allowed the successful deployment of the WordPress
+                  application via Beanstalk.
+                </li>
+                <li>
+                  Discovered that the AWS Query Editor was only supported in
+                  certain DB engine versions, so I switched to Aurora MySQL
+                  3.07.1 to query data from my database using the Query Editor,
+                  utilizing familiar SQL-like language.
+                </li>
+              </ul>
               <h4 class="text-lg font-semibold mt-4">Outcome</h4>
               <p>
                 The project resulted in a highly secure, scalable, and
@@ -350,6 +352,117 @@
                 for automated scaling and load balancing, improving both
                 reliability and user experience resulting in an efficient and
                 reliable and cost-efficient WordPress hosting solution.
+              </p>
+            </div>
+          </div>
+          <!-- Case Study 3 -->
+          <div class="bg-white rounded-lg p-6">
+            <button
+              class="w-full text-left flex justify-between items-center focus:outline-none expand-btn"
+              data-id="3"
+            >
+              <h3 class="text-xl font-semibold">
+                Serverless Movie Recommendation App with AWS
+              </h3>
+              <span
+                class="text-blue-600 font-medium inline-block mt-0 min-w-[102px]"
+              >
+                Show More →
+              </span>
+            </button>
+            <div
+              class="hidden mt-4 text-gray-700 leading-relaxed"
+              id="case-study-3"
+            >
+              <br />
+              <h4 class="text-lg font-semibold mt-4">Objective</h4>
+              <p>
+                The objective of this project was to build a small serverless
+                application using AWS services. By leveraging AWS Lambda,
+                DynamoDB, API Gateway, and Cognito for user authentication, the
+                app provides users with personalized movie recommendations based
+                on TMDb data.
+              </p>
+
+              <p>
+                Live Demo:
+                <a href="https://d3tzed57uik6cm.cloudfront.net/"
+                  >Should I Watch This?</a
+                >
+              </p>
+
+              <h4 class="text-lg font-semibold mt-4">Challenges</h4>
+              <ul class="list-disc ml-6">
+                <li>
+                  <b>Integrating AWS Services</b>: Configuring and integrating
+                  multiple AWS services (Lambda, API Gateway, Cognito, DynamoDB)
+                  to work together, while ensuring each service is properly
+                  secured and optimized for serverless architecture with no
+                  server provisioning or management.
+                </li>
+                <li>
+                  <b>Securing API Endpoints:</b> Implementing and securing API
+                  Gateway endpoints using Cognito authorization to ensure that
+                  only authenticated users can interact with the application's
+                  backend services, adding an extra layer of security.
+                </li>
+                <li>
+                  <b>GitHub Actions and CI/CD Pipeline:</b> Setting up a
+                  reliable GitHub Actions pipeline to automate the build and
+                  deployment process to S3.
+                </li>
+                <li>
+                  <b>CORS and Query Parameters Access Issues:</b> Facing
+                  challenges with configuring Cross-Origin Resource Sharing
+                  (CORS) correctly and ensuring that query parameters are
+                  accessible while setting up API Gateway resources.
+                </li>
+              </ul>
+              <h4 class="text-lg font-semibold mt-4">Solutions</h4>
+              <ul class="list-disc ml-6">
+                <li>
+                  Learned a great deal about Lambda, API Gateway, Cognito, and
+                  DynamoDB to connect these services by creating a seamless
+                  integration between each server. I focused on setting up
+                  correct IAM user policies and role permissions, ensuring
+                  proper communication and security between the services. This
+                  allowed me to achieve a fully functional and secure serverless
+                  application.
+                </li>
+                <li>
+                  Configured Cognito user pools and added necessary
+                  authentication logic in API Gateway, enabling secure access
+                  control.
+                </li>
+                <li>
+                  I configured a GitHub Actions workflow that automatically
+                  triggers on code pushes to the main branch. It installs
+                  dependencies, builds the project, and securely deploys it to
+                  AWS S3 by using GitHub environment variables for AWS
+                  credentials. This automated the deployment process, reducing
+                  manual intervention.
+                </li>
+                <li>
+                  I carefully configured CORS settings in API Gateway to allow
+                  necessary origins, headers, and methods. I also ensured that
+                  query parameters were correctly passed through to Lambda
+                  functions by enabling Lambda proxy integration in API Gateway.
+                </li>
+              </ul>
+              <h4 class="text-lg font-semibold mt-4">Outcome</h4>
+              <p>
+                I successfully built a simple yet fully functional serverless
+                application using AWS services like Lambda, API Gateway,
+                Cognito, and DynamoDB. The app allows users to securely log in,
+                and manage their movie watchlists. By integrating these services
+                with proper security and IAM configurations, I created a
+                cost-effective, scalable solution with no servers to manage. The
+                deployment process is also automated through GitHub Actions,
+                ensuring seamless updates and maintenance. The app is now
+                running efficiently on AWS, demonstrating the power of
+                serverless architecture. I have learned a great deal about
+                serverless architecture, why it's great, its real use cases, and
+                it's pros and benefits.
               </p>
             </div>
           </div>
